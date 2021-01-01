@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Filtering</title>
+    <link href="src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="src/js/jquery.min.js"></script>
+    <script src="src/js/popper.min.js"></script>
+    <script src="src/js/bootstrap.min.js"></script>
+    <link href="src/css/layout.css" rel="stylesheet">
+    <script src="src/js/site.js"></script>
+    <link href="src/fonts/font-awesome.min.css" rel="stylesheet">
+    <script src="src/js/handlebars.min.js"></script>  
+</head>
+<body>
+    <div class="layout-margin-8 mt-4">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 col-xl-8">
+                    <nav class="nav float-left filter-group" style="margin-top: 55px;" id="levels-filter">
+      
+                    </nav>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-xl-4">
+                    <nav class="navbar navbar-light justify-content-center mt-5">
+
+                        <input class="form-control " type="search" placeholder="Search..." aria-label="Search" 
+                            id="search">
+                            <i class="fa fa-question-circle ml-2 help-tooltip"  data-toggle="popover" data-placement="top" data-content="filtering by or condition" aria-hidden="true"></i>     
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+        <!-- Search functionality -->
+
+        <!-- Cards -->
+
+        <div class="container-fluid">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 pt-5" id="delCard1">
+
+            </div>
+         </div>
+        <button class="back-to-top" type="button"></button>
+    </div>
+
+    <script id="userList" type="text/x-handlebars-template">
+            {{#each this}}
+            <div class="col mb-4 hvr-grow-shadow">
+            <div class="card text-center">
+             <a href="#" target="_blank" ><img class="card-img-top mx-auto img-fluid people rounded-circle" src="{{picture.large}}" alt="Max-Planck-Gesellschaft"></a>   
+                <div class="card-body">
+                    <h5 class="card-title">{{name.first}} {{name.last}}</h5>
+                   <small style="color: #237F9A;display: block;">{{email}}</small>
+                  
+                    {{#if location.city }}
+                       <small style="display: block;">
+                        <i  class="fa fa-map-marker" aria-hidden="true"></i>
+                        {{location.city}}
+                       </small>                  
+                      
+                    {{/if}}
+                  
+                </div>
+            </div>
+        </div>
+
+        {{/each}}
+        </script>
+       
+</body>
+
+</html>
